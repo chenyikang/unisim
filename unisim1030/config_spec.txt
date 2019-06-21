@@ -1,0 +1,57 @@
+// 說明：以 // 開始的行為註釋
+// 以下文字中 ?? 代表實際的數字
+
+// 宿舍樓的初始層數
+FLOOR: ??
+
+// 每層的初始房間數
+ROOM: ??
+
+// 每間房的初始容量（即入住人數）
+CAPACITY: ??
+
+// 學生狀態初始值，依次為：體重、金錢、知識、魅力
+WEIGHT: ??
+MONEY: ??
+KNOWLEDGE: ??
+CHARM: ??
+
+// 每單位重量食物可以增加的體重
+FOOD_WEIGHT: ??
+// 每單位重量食物的價格
+FOOD_COST: ??
+
+// 每單位時間學習減少的體重
+STUDY_WEIGHT: ??
+// 每單位時間學習增加的知識
+STUDY_KNOWLEDGE: ??
+
+// 每單位時間工作減少的體重
+WORK_WEIGHT: ??
+// 每單位時間工作增加的金錢
+WORK_MONEY: ??
+
+
+// 每執行一次吃飯、學習、打工活動後，學生的狀態變化公式如下，其中a,b,c為係數，在不同公式中各不相同 
+// 體重增量
+WEIGHT_INC = a * FOOD_TAKEN * FOOD_WEIGHT - b * STUDY_TIME  * STUDY_WEIGHT - c * WORK_TIME * WORK_WEIGHT
+
+// 金錢增量
+MONEY_INC = a * WORK_TIME * WORK_MONEY - b * FOOD_TAKEN * FOOD_COST
+
+// 知識增量
+KNOWLEDGE_INC = a * STUDY_TIME * STUDY_KNOWLEDGE
+
+// 魅力增量
+// 說明：魅力最多增加到100，但學生還可以繼續從事增加魅力的活動，不算無效指令。
+CHARM_INC = a * KNOWLEDGE_INC - b * WEIGHT_INC
+
+// 可否建立戀愛關係的相對魅力差值閾值
+LOVE_STANDARD: ??
+
+// 存盤文件名
+SAVE_FILE_NAME: ??
+
+
+
+
